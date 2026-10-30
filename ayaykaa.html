@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <title>yaaayy dugaya na uy</title>
+    <style>
+        body {
+            font-family: "Baloo 2", cursive;
+            text-align: center;
+            background-image: url("Shrek.jpg");
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        body p {
+            font-size: clamp(20px, 5vw, 50px);
+            color: rgb(234, 8, 234);
+            font-weight: bolder;
+        }
+
+        .title-section {
+            font-size: clamp(40px, 8vw, 100px);
+            color: rgb(234, 8, 234);
+            font-weight: bolder;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            cursor: pointer;
+            font-size: clamp(18px, 4vw, 40px);
+            padding: 15px 35px;
+            margin: 0;
+            border-radius: 100px;
+            transition: 0.3s;
+            font-weight: bolder;
+            color: white;
+            background-color: rgb(0, 175, 29);
+            border: none;
+        }
+
+        button:hover {
+            color: rgb(0, 0, 0);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <section id="title" class="title-section">Yieee Happy Monthsaryyy</section>
+    <p>Gusto ba nimo makita ang mahiwagang message?</p>
+    
+    <div class="buttons">
+    <button id="buton">Yeesss😁</button>
+        <button onclick="location.href='grabikanaman.html'">didiayko😒</button>
+        </div>
+
+        <script>
+            let click = 0;
+
+            buton.onclick = function() {
+                click++;
+
+                if (click == 1) buton.textContent = "sure uuyy🤔";
+                if (click == 2) buton.textContent = "mubo ra baya ni😔";
+                if (click == 3) buton.textContent = "ohsige😙";
+                if (click == 4) location.href = "message.html";
+
+            }
+        </script>
+</body>
+</html>

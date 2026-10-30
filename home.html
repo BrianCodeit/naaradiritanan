@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    #content {
+      max-width: 500px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+    button {
+      padding: 12px 25px;
+      background: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #c0392b;
+    }
+
+    .content a {
+    color: rgb(255, 0, 34);
+    font-size: 35px;
+    text-decoration: none;
+    font-family: "Baloo 2", cursive;
+    font-style: bold;
+    font-weight: 900;
+    }
+
+
+  </style>
+</head>
+<body>
+  <h1 id="welcome"></h1>
+  <div id="content"></div>
+  <section class="content">     
+  </section>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAT0tXOxysinYEgqhrdjKqtamQhTz3CYYw",
+        authDomain: "forusing-8a86e.firebaseapp.com",
+        projectId: "forusing-8a86e",
+        storageBucket: "forusing-8a86e.firebasestorage.app",
+        messagingSenderId: "74712853291",
+        appId: "1:74712853291:web:77a122c9b20bbaec0b736e",
+        measurementId: "G-FRVRSR7G11"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          document.getElementById("welcome").textContent = `Welcome, ${data.displayName || data.username}!`;
+          document.getElementById("content").innerHTML = data.content || "";
+        } else {
+          document.getElementById("welcome").textContent = "Welcome!";
+        }
+      } else {
+        window.location.href = "index.html";
+      }
+    });
+
+    window.logout = function() {
+      signOut(auth).then(() => {
+        window.location.href = "index.html";
+      });
+    }
+  </script>
+</body>
+</html>

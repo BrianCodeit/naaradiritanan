@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Monthsary</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(160deg, rgb(255, 240, 245), #f8bbd0);
+      padding: 20px;
+    }
+
+    .card-odalisay {
+      background: white;
+      border-radius: 20px;
+      padding: 28px 24px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(173, 20, 87, 0.12);
+       animation: fadeUp 2s ease forwards;
+    }
+
+    h1 {
+      color: #ad1457;
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+
+    p {
+      color: #880e4f;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .last {
+      color: #ad1457;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    @keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    .floating {
+        position: fixed;
+        font-size: 1.3rem;
+        pointer-events: none;
+        animation: floatUp 4.5s ease-in forwards;
+        opacity: 0.7;
+      }
+
+      @keyframes floatUp {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+        100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <div class="card-odalisay">
+    <h1>💕Happy Monthsary💕</h1>
+    <p>HAPPPY 11TH MONTSAAARRRYYYY WAHAHAHHAAHA GALENG DALIA RA KAAYUS ADLAAAWW UUYYY😭😭😭😭 WATDAHELLY IS DIIISSSS SO VERY FASTING THE WATERING OMAYGAD WHAHHAHAAAH OKAY AMBOT, LIKE IM VERY HAPPY JEYD NGA NAGKAILA TA MA MEENNN, GAYA SD NATO NAGKAILA UY DAPAT GISAYUHAN UNTA TO ARUN 1MILYON YEARS NATA RUN, WITWIW SO UM MAO RAJDTO SYA IM VERY HAPPY TO MEET YOU, WAKO KABILIB NGA MAGKAINGANI TA RUN ANDEN NAKAILA NASD IMO MADER SAKOA BUT NOT FULLY PERO AYUN NGA NAKAILA NA NYA ABIG MAO NAJDTO ANG KATAPUSAN PERO KARUN HAPPY HAPPY NAMALNG SYA ABIG STRICT JEYD KAAYU BUT STILL STRICT OR DILI, PADAYUN RAJD TAS ATUNG PAGSKWELA, HUMNON USA NI NATO ANDEN MAO NATO SYAA, DAPAT MANGITA OG STABLE NGA TRABAHO ARUN MEDJ HAYAHAY NANG KINABUHI SATU GINIKANAN ARUN MAKABAYAD NAJD TAS ILANG MGA SACRIFICE PARA SATUAA SO YEAHH MAO RATOO, ILOOVEEYOUUSOOMUUCCCHHH😖😖😖😖😖😖 MWAAAAAAAAAAHHHHH😙😙😙</p>
+    <p class="last"> PATOTOYA NAKOO</p>
+  </div>
+
+  <script>
+    const emojis = ['🌸', '💖', '🌹', '✨', '💕', '🌺', '🌷'];
+    
+    function createFloating() {
+      const el = document.createElement('div');
+      el.className = 'floating';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.bottom = '-40px';
+      el.style.animationDuration = (3.5 + Math.random() * 2.5) + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 7000);
+    }
+
+    setInterval(createFloating, 450);
+    for (let i = 0; i < 6; i++) setTimeout(createFloating, i * 250);
+  </script>
+</body>
+</html>
